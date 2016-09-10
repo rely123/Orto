@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+	Estado_general
+{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				{{form.fichas}}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+			<label for="{{form.cambio_salud.name}}">{{form.cambio_salud.label}}</label>	
+			{{form.cambio_salud}}
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+		
+			<label for="{{form.detalle_enf_operacion.name}}">{{form.detalle_enf_operacion.label}}</label>
+			<input type="checkbox" onclick="var input = document.getElementById('{{form.detalle_enf_operacion.id_for_label}}'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />	
+			{{form.detalle_enf_operacion}}
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+			<label for="{{form.otras_enfermedades.name}}">{{form.otras_enfermedades.label}}</label>	
+			{{form.otras_enfermedades}}
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+			<label for="{{form.detalle_otra_enfermedad.name}}">{{form.detalle_otra_enfermedad.label}}</label>	
+			{{form.detalle_otra_enfermedad}}
+		</div>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<label for="{{form.detalle_medicamento.name}}">{{form.detalle_medicamento.label}}</label>	
+			<input type="checkbox" onclick="var input = document.getElementById('{{form.detalle_medicamento.id_for_label}}'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+			{{form.detalle_medicamento}}
+				
+		</div>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<button type="button" onclick=" location.href='{% url 'informacion:estado_general_listar' %}'"" class="btn btn-warning">Cancelar</button>
+		</div>
+	</div>
+</form>
+
+	
+{% endblock %}
