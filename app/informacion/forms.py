@@ -1,6 +1,8 @@
 from django import forms
 from app.informacion.models import estado_general,fichas,datos_generales
-# -*- coding: utf-8 -*-
+from django.contrib.admin import widgets
+from django.contrib.admin.widgets import AdminDateWidget
+
 
 class EstadoGeneralForm(forms.ModelForm):
 	class Meta:
@@ -33,6 +35,63 @@ class EstadoGeneralForm(forms.ModelForm):
 		}
 
 
+class DatosGeneralesForm(forms.ModelForm):
+	class Meta:
+		model = datos_generales
+
+		fields = [
+			'cod_expediente',
+			'nombre_completo',
+			'edad',
+			'edad_registro',
+			'fecha_nac',
+			'telefono',
+			'genero',
+			'direccion',
+			'nombre_resp',
+			'motivo_consulta',
+			'fechaRegistro',
+			#'usuario_creador',
+			'fecha_hora_creacion',
+		]
+
+		labels={
+			'cod_expediente':'Codigo Expediente',
+			'nombre_completo':'Nombre Completo',
+			'edad':'Edad Actual',
+			'edad_registro':'Edad Registro',
+			'fecha_nac':'Fecha de Nacimiento',
+			'telefono':'Telefono',
+			'genero':'Genero',
+			'direccion':'Direccion',
+			'nombre_resp':'Nombre del Padre o Encargado',
+			'motivo_consulta':'Motivo de Consulta',
+			'fechaRegistro':'Fecha de Registro',
+			#'usuario_creador':'Nombre y Carne del creador',
+			'fecha_hora_creacion':'Fecha y hora de creacion',
+		}
+
+		widgets={
+			'cod_expediente':forms.TextInput(attrs={'class':'form-control'}),
+			'nombre_completo':forms.TextInput(attrs={'class':'form-control'}),
+			'edad':forms.TextInput(attrs={'class':'form-control'}),
+			'edad_registro':forms.NumberInput(attrs={'class':'form-control'}),
+
+			'fecha_nac':forms.DateInput(attrs={'class':'form-control'}),
+
+			'telefono':forms.TextInput(attrs={'class':'form-control'}),
+			'genero':forms.NumberInput(attrs={'class':'form-control'}),
+			'direccion':forms.TextInput(attrs={'class':'form-control'}),
+			'nombre_resp':forms.TextInput(attrs={'class':'form-control'}),
+			'motivo_consulta':forms.Textarea(attrs={'class':'form-control'}),
+			'fechaRegistro':forms.DateInput(attrs={'class':'form-control'}),
+			#'usuario_creador':forms.TextInput(attrs={'class':'form-control'}),
+			'fecha_hora_creacion':forms.DateTimeInput(attrs={'class':'form-control'}),
+		
+		}
+
+
+
 class EstadoGeneralForm_consultar(forms.ModelForm):
 	class Meta:
 		model = estado_general
@@ -62,3 +121,4 @@ class EstadoGeneralForm_consultar(forms.ModelForm):
 			'detalle_otra_enfermedad':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'otras_enfermedades': forms.CheckboxSelectMultiple(attrs={'disabled':True}),
 		}
+		

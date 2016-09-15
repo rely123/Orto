@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'djangobower',
     'django.contrib.staticfiles',
     'app.informacion',
     'app.denticion',
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'orto2',
         'USER': 'root',
-        'PASSWORD': 'walter92',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }

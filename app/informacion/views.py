@@ -5,14 +5,11 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 
 from app.informacion.models import estado_general,datos_generales,fichas
-from app.informacion.forms import EstadoGeneralForm,EstadoGeneralForm_consultar
-
-# Create your views here.
-# -*- coding: utf-8 -*-
+from app.informacion.forms import EstadoGeneralForm,EstadoGeneralForm_consultar,DatosGeneralesForm
 
 class EstadoGeneralList(ListView):
 	model = estado_general
-	template_name = 'estado_general/list.html'
+	template_name = 'informacion/list.html'
 
 
 
@@ -28,7 +25,7 @@ def EstadoGeneral_edit(request,codigo,num):
 			if form.is_valid():
 				form.save()
 			return redirect('informacion:estado_general_listar')
-		return render(request,'estado_general/form.html',{'form':form})
+		return render(request,'informacion/form_estadoGeneral.html',{'form':form})
 	return HttpResponse("No se encontro el Codigo de Expediente y el numero de la ficha")
 
 
@@ -46,10 +43,10 @@ def EstadoGeneral_consultar(request,codigo,num):
 			if form.is_valid():
 				form.save()
 			return redirect('informacion:estado_general_listar')
-		return render(request,'estado_general/form.html',{'form':form})
+		return render(request,'informacion/form_estadoGeneral.html',{'form':form})
 	return HttpResponse("No se encontro el Codigo de Expediente y el numero de la ficha")
 
-
+DatosGeneralesForm
 
 
 def EstadoGeneral_crear(request,codigo,num):
@@ -68,8 +65,18 @@ def EstadoGeneral_crear(request,codigo,num):
 			else:
 				form = EstadoGeneralForm(initial={'fichas':ids.id})
 
-			return render(request, 'estado_general/form.html', {'form':form})
+			return render(request, 'informacion/form_estadoGeneral.html', {'form':form})
 	except Exception, e:
 		return HttpResponse("No se encontro el Codigo de Expediente y el numero de la ficha")
 
+def DatosGeneral_crear(request):
+		if request.method == 'POST':
+				form = DatosGeneralesForm(request.POST)
+				if form.is_valid():
+				 	form.save()
+				return redirect('informacion:datos_generales_listar')
+				
+		else:
+				form = DatosGeneralesForm()
 
+		return render(request, 'informacion/form_datosGenerales.html', {'form':form})
