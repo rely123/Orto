@@ -9,7 +9,7 @@ from app.informacion.forms import EstadoGeneralForm,EstadoGeneralForm_consultar,
 
 class EstadoGeneralList(ListView):
 	model = estado_general
-	template_name = 'informacion/list.html'
+	template_name = 'informacion/list_estadogeneral.html'
 
 
 
@@ -46,8 +46,6 @@ def EstadoGeneral_consultar(request,codigo,num):
 		return render(request,'informacion/form_estadoGeneral.html',{'form':form})
 	return HttpResponse("No se encontro el Codigo de Expediente y el numero de la ficha")
 
-DatosGeneralesForm
-
 
 def EstadoGeneral_crear(request,codigo,num):
 	str(codigo)
@@ -80,3 +78,22 @@ def DatosGeneral_crear(request):
 				form = DatosGeneralesForm()
 
 		return render(request, 'informacion/form_datosGenerales.html', {'form':form})
+
+def DatosGeneral_consultar(request,codigo):
+	str(codigo)
+	ids = fichas.objects.get(cod_expediente=codigo)
+	if ids:
+		estado = estado_general.objects.get(fichas_id=ids.id)
+		if request.method == 'GET':
+			form = EstadoGeneralForm_consultar(instance=estado)
+		else: 
+			form = EstadoGeneralForm_consultar(request.POST, instance=estado)
+			if form.is_valid():
+				form.save()
+			return redirect('informacion:datos_generales_listar')
+		return render(request,'informacion/form_datosGenerales.html',{'form':form})
+	return HttpResponse("No se encontro el Codigo de Expediente")
+
+class DatosGeneralesList(ListView):
+	model = datos_generales
+	template_name = 'informacion/list_datosgenerales.html'

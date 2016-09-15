@@ -86,7 +86,7 @@ class DatosGeneralesForm(forms.ModelForm):
 			'motivo_consulta':forms.Textarea(attrs={'class':'form-control'}),
 			'fechaRegistro':forms.DateInput(attrs={'class':'form-control'}),
 			#'usuario_creador':forms.TextInput(attrs={'class':'form-control'}),
-			'fecha_hora_creacion':forms.DateTimeInput(attrs={'class':'form-control'}),
+			'fecha_hora_creacion':forms.DateInput(attrs={'class':'form-control'}),
 		
 		}
 
@@ -120,5 +120,61 @@ class EstadoGeneralForm_consultar(forms.ModelForm):
 			'detalle_medicamento':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'detalle_otra_enfermedad':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'otras_enfermedades': forms.CheckboxSelectMultiple(attrs={'disabled':True}),
+		}
+
+
+class DatosGeneralesForm_consultars(forms.ModelForm):
+	class Meta:
+		model = datos_generales
+
+		fields = [
+			'cod_expediente',
+			'nombre_completo',
+			'edad',
+			'edad_registro',
+			'fecha_nac',
+			'telefono',
+			'genero',
+			'direccion',
+			'nombre_resp',
+			'motivo_consulta',
+			'fechaRegistro',
+			#'usuario_creador',
+			'fecha_hora_creacion',
+		]
+
+		labels={
+			'cod_expediente':'Codigo Expediente',
+			'nombre_completo':'Nombre Completo',
+			'edad':'Edad Actual',
+			'edad_registro':'Edad Registro',
+			'fecha_nac':'Fecha de Nacimiento',
+			'telefono':'Telefono',
+			'genero':'Genero',
+			'direccion':'Direccion',
+			'nombre_resp':'Nombre del Padre o Encargado',
+			'motivo_consulta':'Motivo de Consulta',
+			'fechaRegistro':'Fecha de Registro',
+			#'usuario_creador':'Nombre y Carne del creador',
+			'fecha_hora_creacion':'Fecha y hora de creacion',
+		}
+
+		widgets={
+			'cod_expediente':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'nombre_completo':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'edad':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'edad_registro':forms.NumberInput(attrs={'class':'form-control','readonly':True}),
+
+			'fecha_nac':forms.DateInput(attrs={'class':'form-control','readonly':True}),
+
+			'telefono':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'genero':forms.NumberInput(attrs={'class':'form-control','readonly':True}),
+			'direccion':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'nombre_resp':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'motivo_consulta':forms.Textarea(attrs={'class':'form-control','readonly':True}),
+			'fechaRegistro':forms.DateInput(attrs={'class':'form-control','readonly':True}),
+			#'usuario_creador':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+			'fecha_hora_creacion':forms.DateInput(attrs={'class':'form-control','readonly':True}),
+		
 		}
 		
