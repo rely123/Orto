@@ -1,5 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
+from app.informacion.choices import genero_choices
+
+
 
 # Create your models here.
 
@@ -10,11 +13,11 @@ class datos_generales(models.Model):
     edad_registro = models.IntegerField()
     fecha_nac = models.DateField()
     telefono = models.CharField(max_length=8)
-    genero = models.IntegerField()
+    genero = models.IntegerField(choices=genero_choices, default=1)
     direccion = models.CharField(max_length=200)
     nombre_resp = models.CharField(max_length=100)
     motivo_consulta = models.CharField(max_length=500)
-    fechaRegistro = models.DateTimeField() 
+    fechaRegistro = models.DateField() 
     #usuario_creador = models.ForeignKey('Usuarios', models.DO_NOTHING, db_column='usuario_creador',null=True)
     fecha_hora_creacion = models.DateTimeField()
 

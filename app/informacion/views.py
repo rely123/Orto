@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 
 from app.informacion.models import estado_general,datos_generales,fichas
-from app.informacion.forms import EstadoGeneralForm,EstadoGeneralForm_consultar,DatosGeneralesForm
+from app.informacion.forms import EstadoGeneralForm,EstadoGeneralForm_consultar,DatosGeneralesForm,DatosGeneralesForm_consultar
 
 class EstadoGeneralList(ListView):
 	model = estado_general
@@ -79,21 +79,37 @@ def DatosGeneral_crear(request):
 
 		return render(request, 'informacion/form_datosGenerales.html', {'form':form})
 
-def DatosGeneral_consultar(request,codigo):
+def DatosGenerales_consultar(request,codigo):
 	str(codigo)
-	ids = fichas.objects.get(cod_expediente=codigo)
+	ids = datos_generales.objects.get(cod_expediente=codigo)
 	if ids:
-		estado = estado_general.objects.get(fichas_id=ids.id)
+		datos = datos_generales.objects.get(cod_expediente=codigo)
 		if request.method == 'GET':
-			form = EstadoGeneralForm_consultar(instance=estado)
+			form = DatosGeneralesForm_consultar(instance=datos)
 		else: 
-			form = EstadoGeneralForm_consultar(request.POST, instance=estado)
+			form = DatosGeneralesForm_consultar(request.POST, instance=datos)
 			if form.is_valid():
 				form.save()
 			return redirect('informacion:datos_generales_listar')
 		return render(request,'informacion/form_datosGenerales.html',{'form':form})
 	return HttpResponse("No se encontro el Codigo de Expediente")
 
+
 class DatosGeneralesList(ListView):
 	model = datos_generales
 	template_name = 'informacion/list_datosgenerales.html'
+
+def DatosGenerales_edit(request,codigo):
+	str(codigo)
+	ids = datos_generales.objects.get(cod_expediente=codigo)
+	if ids:
+		datos = datos_generales.objects.get(cod_expediente=codigo)
+		if request.method == 'GET':
+			form = DatosGeneralesForm(instance=datos)
+		else: 
+			form = DatosGeneralesForm(request.POST, instance=datos)
+			if form.is_valid():
+				form.save()
+			return redirect('informacion:datos_generales_listar')
+		return render(request,'informacion/form_datosGenerales.html',{'form':form})
+	return HttpResponse("No se encontro el Codigo de Expediente y el numero de la ficha")

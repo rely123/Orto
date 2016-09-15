@@ -1,7 +1,8 @@
 from django import forms
 from app.informacion.models import estado_general,fichas,datos_generales
 from django.contrib.admin import widgets
-from django.contrib.admin.widgets import AdminDateWidget
+from app.informacion.choices import genero_choices
+from datetime import datetime
 
 
 class EstadoGeneralForm(forms.ModelForm):
@@ -80,13 +81,13 @@ class DatosGeneralesForm(forms.ModelForm):
 			'fecha_nac':forms.DateInput(attrs={'class':'form-control'}),
 
 			'telefono':forms.TextInput(attrs={'class':'form-control'}),
-			'genero':forms.NumberInput(attrs={'class':'form-control'}),
+			'genero':forms.Select(attrs={'class':'form-control'}),
 			'direccion':forms.TextInput(attrs={'class':'form-control'}),
 			'nombre_resp':forms.TextInput(attrs={'class':'form-control'}),
 			'motivo_consulta':forms.Textarea(attrs={'class':'form-control'}),
 			'fechaRegistro':forms.DateInput(attrs={'class':'form-control'}),
 			#'usuario_creador':forms.TextInput(attrs={'class':'form-control'}),
-			'fecha_hora_creacion':forms.DateInput(attrs={'class':'form-control'}),
+			'fecha_hora_creacion':forms.DateTimeInput(attrs={'class':'form-control'}),
 		
 		}
 
@@ -112,7 +113,7 @@ class EstadoGeneralForm_consultar(forms.ModelForm):
 			'detalle_medicamento' : 'Medicamento Que ha tomado',
 			'detalle_otra_enfermedad' : 'otras enfermedades',
 			'otras_enfermedades': 'Tuvo alguna de estas enfermedades ',
-		}
+		}	
 		widgets={
 			'fichas':forms.HiddenInput(attrs={'class':'form-control','readonly':True}),
 			'cambio_salud':forms.CheckboxInput(attrs={'disabled':True}),
@@ -123,7 +124,7 @@ class EstadoGeneralForm_consultar(forms.ModelForm):
 		}
 
 
-class DatosGeneralesForm_consultars(forms.ModelForm):
+class DatosGeneralesForm_consultar(forms.ModelForm):
 	class Meta:
 		model = datos_generales
 
@@ -174,7 +175,7 @@ class DatosGeneralesForm_consultars(forms.ModelForm):
 			'motivo_consulta':forms.Textarea(attrs={'class':'form-control','readonly':True}),
 			'fechaRegistro':forms.DateInput(attrs={'class':'form-control','readonly':True}),
 			#'usuario_creador':forms.TextInput(attrs={'class':'form-control','readonly':True}),
-			'fecha_hora_creacion':forms.DateInput(attrs={'class':'form-control','readonly':True}),
+			'fecha_hora_creacion':forms.DateTimeInput(attrs={'class':'form-control','readonly':True}),
 		
 		}
 		
