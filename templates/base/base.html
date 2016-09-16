@@ -9,6 +9,15 @@
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> 
 	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+	<style type="text/css"> 
+		.dropdown-toggle{
+		 display:block;
+		  width: 9em;
+		  word-wrap: break-word;
+		} 
+	</style>
+
 	<title>{% block title %} Base {% endblock %}</title>
 </head>
 <body>
@@ -23,31 +32,66 @@
 		            	<nav class="navbar navbar-default">
 		                	<div class="container-fluid">
 		                  		<div class="navbar-header">
-		                    		<a class="navbar-brand" href="#">Home</a>
+		                    		<a class="navbar-brand" href="#">SOUES</a>
 		                  		</div>
 		                  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		                    	<ul class="nav navbar-nav">
 		                      		<li class="dropdown">
-		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informacion General<span class="caret"></span></a>
 				                        <ul class="dropdown-menu" role="menu">
-				                        	<li><a href=""></a></li>
-				                        	<li><a href=""></a></li>
+				                        	<li><a href="{% url 'informacion:datos_generales_crear' %}">Datos Generales</a></li>
+				                        	<li><a href="">Estado General</a></li>
 				                        </ul>
 		                      		</li>
 			                        <li class="dropdown">
-			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tipo de Perfil<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href=" # "></a></li>
+				                          	<li><a href=" # "></a></li>
+			                        	</ul>
+			                        </li>
+			                        <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Aspectos de Dentici&oacuten<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href=" # "></a></li>
+				                          	<li><a href=" # "></a></li>
+			                        	</ul>
+			                        </li>
+			                        <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">An&aacutelisis Radiografico<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href=" # "></a></li>
+				                          	<li><a href=" # "></a></li>
+			                        	</ul>
+			                        </li>
+			                        <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">An&aacutelisis Cefalom&eacutetrico<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href=" # "></a></li>
+				                          	<li><a href=" # "></a></li>
+			                        	</ul>
+			                        </li>
+			                         <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">An&aacutelisis de Dentici&oacuten<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href=" # "></a></li>
+				                          	<li><a href=" # "></a></li>
+			                        	</ul>
+			                        </li>
+			                         <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Diagnostico Ortodontico General<span class="caret"></span></a>
 			                        	<ul class="dropdown-menu" role="menu">
 				                          	<li><a href=" # "></a></li>
 				                          	<li><a href=" # "></a></li>
 			                        	</ul>
 			                        </li>
 		                    	</ul>
-		                    	<ul class="nav navbar-nav navbar-right">
+		                    	<!-- <ul class="nav navbar-nav navbar-right">
 		                        	<li class="dropdown">
 		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
 		                        		<ul class="dropdown-menu" role="menu">
 		                          			<li><a href="#">Salir</a></li>
-		                        		</ul>
+		                        		</ul> -->
 		                      		</li>
 		                    	</ul>
 		                    </div>

@@ -169,7 +169,7 @@ class DatosGeneralesForm_consultar(forms.ModelForm):
 			'fecha_nac':forms.DateInput(attrs={'class':'form-control','readonly':True}),
 
 			'telefono':forms.TextInput(attrs={'class':'form-control','readonly':True}),
-			'genero':forms.NumberInput(attrs={'class':'form-control','readonly':True}),
+			'genero':forms.Select(attrs={'class':'form-control','readonly':True}),
 			'direccion':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'nombre_resp':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'motivo_consulta':forms.Textarea(attrs={'class':'form-control','readonly':True}),
