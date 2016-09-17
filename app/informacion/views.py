@@ -83,7 +83,6 @@ def Fichas_crear(request,codi):
 					 	form.save()
 					
 					return HttpResponseRedirect('/informacion/estado_general/nuevo/%s/%s/' %(codi,num))
-					#return redirect('informacion:estado_general_listar')	
 			else:
 				form = FichasForm(initial={'cod_expediente':codi})
 
