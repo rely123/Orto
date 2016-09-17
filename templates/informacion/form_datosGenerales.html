@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-	Datos_general
+	Datos generales
 
 {% endblock %}
 {% block header %}
@@ -19,13 +19,12 @@
 	{% csrf_token %}
  	 
 
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="form-group">
-					<label for="{{form.cod_expediente.name}}">{{form.cod_expediente.label}}</label>	
-				{{form.cod_expediente}}
-			</div>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+				<label for="{{form.cod_expediente.name}}">{{form.cod_expediente.label}}</label>	
+			{{form.cod_expediente}}
 		</div>
+	</div>
 	</div>
 
 
@@ -110,8 +109,8 @@
 
 	<div class="col-md-8 col-md-offset-2">
 		<div class="form-group">
-			<button type="submit" class="btn btn-success">Guardar</button>
 			<button type="button" onclick=" location.href='{% url 'informacion:estado_general_listar' %}'"" class="btn btn-warning">Cancelar</button>
+			<button type="submit" class="btn btn-success">Siguiente</button>
 		</div>
 	</div>
 	<script>

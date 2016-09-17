@@ -34,7 +34,7 @@ class fichas(models.Model):
 
 
     def __unicode__(self):
-        return 'Expediente: %s Fichas: %s' % (self.cod_expediente,self.numero)
+        return  '{} {}'.format(self.cod_expediente,self.numero)
 
 class catalogo_enfermedades(models.Model):
     id_enfermedad = models.IntegerField(primary_key=True)
