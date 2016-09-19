@@ -81,7 +81,7 @@ class DatosGeneralesForm_consultar(forms.ModelForm):
 			'fecha_nac':forms.DateInput(attrs={'class':'form-control','readonly':True}),
 
 			'telefono':forms.TextInput(attrs={'class':'form-control','readonly':True}),
-			'genero':forms.Select(attrs={'class':'form-control','readonly':True}),
+			'genero':forms.Select(attrs={'class':'form-control','readonly':True,'disabled':True}),
 			'direccion':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'nombre_resp':forms.TextInput(attrs={'class':'form-control','readonly':True}),
 			'motivo_consulta':forms.Textarea(attrs={'class':'form-control','readonly':True}),
@@ -103,7 +103,7 @@ class FichasForm(forms.ModelForm):
 
 		labels={
 			'cod_expediente': 'Codigo de Expediente',
-			'numero':'Numero de ficha',
+			'numero':'Numero de ficha a crear',
 		}
 		widgets={
 			'cod_expediente':forms.TextInput(attrs={'class':'form-control'}),
