@@ -1,0 +1,136 @@
+{% extends 'base/base.html' %}
+
+
+{% block header %}
+	Tipo de Perfil	
+{% endblock %}
+
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.id_tipo_perfil.name}}">{{form.id_tipo_perfil.label}}</label>
+			{{form.id_tipo_perfil}}
+		</div>
+	</div>
+
+
+	<div class="col-md-6 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.id_frontal_facial.name}}">{{form.id_frontal_facial.label}}</label>
+			{{form.id_frontal_facial}}
+		</div>
+	</div>
+
+
+	<div class="col-md-6 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.id_tipoPerfiltotal.name}}">{{form.id_tipoPerfiltotal.label}}</label>
+			{{form.id_tipoPerfiltotal}}
+		</div>
+	</div>
+
+
+	<div class="col-md-6 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.id_perfilTercio_inferior.name}}">{{form.id_perfilTercio_inferior.label}}</label>
+			{{form.id_perfilTercio_inferior}}
+		</div>
+	</div>
+
+
+
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tipoNariz.name}}">{{form.tipoNariz.label}}</label>
+			{{form.tipoNariz}}
+		</div>
+	</div>
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.angulo_Naso_labial.name}}">{{form.angulo_Naso_labial.label}}</label>
+			{{form.angulo_Naso_labial}}
+		</div>
+	</div>
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.id_tipoSonrisa.name}}">{{form.id_tipoSonrisa.label}}</label>
+			{{form.id_tipoSonrisa}}
+		</div>
+	</div>
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tamanoSonrisa.name}}">{{form.tamanoSonrisa.label}}</label>
+			{{form.tamanoSonrisa}}
+		</div>
+	</div>
+
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.grosorLabios.name}}">{{form.grosorLabios.label}}</label>
+			{{form.grosorLabios}}
+		</div>
+	</div>
+
+
+	<div class="col-md-5 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tamanoLabios.name}}">{{form.tamanoLabios.label}}</label>
+			{{form.tamanoLabios}}
+		</div>
+	</div>
+
+
+	
+
+
+	<div class="col-md-3 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tercio_superior.name}}">{{form.tercio_superior.label}}</label>
+			{{form.tercio_superior}}
+		</div>
+	</div>
+
+
+	<div class="col-md-3 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tercio_medio.name}}">{{form.tercio_medio.label}}</label>
+			{{form.tercio_medio}}
+		</div>
+	</div>
+
+
+	<div class="col-md-3 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tercio_inferior.name}}">{{form.tercio_inferior.label}}</label>
+			{{form.tercio_inferior}}
+		</div>
+	</div>
+
+
+
+
+	<div class="col-md-6 col-md-offset-1">
+		<div class="form-group">
+			<label for="{{form.tipo_competenciaLabial.name}}">{{form.tipo_competenciaLabial.label}}</label>
+			{{form.tipo_competenciaLabial}}
+		</div>
+	</div>
+
+
+	</form>
+{% endblock %}
