@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Facial frontal</td>
+			<td>Perfil total</td>
+			<td>Perfil 1/3 inf</td>
+			<td>Nariz</td>
+			<td>Angulo naso labial</td>
+			<td>Tercio sup</td>
+			<td>Tercio medio</td>
+			<td>Tercio inf</td>
+			<td>Sonrisa</td>
+			<td>Tamano sonrisa</td>
+			<td>Grosor labios</td>
+			<td>Tamano labios</td>
+			<td>Competencia labial</td>
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if tipo_perfiles %}
+			{% for tipo_perfil in tipo_perfiles %}
+			<tr>
+				<td>{{ tipo_perfil.id }}</td>
+				<td>{{ tipo_perfil.facialfrontal.frontal_facial }}</td>
+				<td>{{ tipo_perfil.perfiltotal.tipoperfiltotal }}</td>
+				<td>{{ tipo_perfil.ptercioinferior.perfiltercio_inferior }}</td>
+				<td>{{ tipo_perfil.tiponariz }}</td>
+				<td>{{ tipo_perfil.angulo_Naso_labial }}</td>
+				<td>{{ tipo_perfil.tercio_superior }}</td>
+				<td>{{ tipo_perfil.tercio_medio }}</td>
+				<td>{{ tipo_perfil.tercio_inferior }}</td>
+				<td>{{ tipo_perfil.sonrisa.tipoSonrisa }}</td>
+				<td>{{ tipo_perfil.tamanosonrisa }}</td>
+				<td>{{ tipo_perfil.grosorlabios }}</td>
+				<td>{{ tipo_perfil.tamanolabios }}</td>
+				<td>{{ tipo_perfil.tipo_competenciaLabial }}</td>
+			</tr>
+			{% endfor %}
+
+		{% else %}
+			<h1>No se encontraron registros! </h1>
+		{% endif %}
+
+	</tbody>
+</table>
+
+{% endblock %}
